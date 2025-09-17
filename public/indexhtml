@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>DevOps Practice</title></head>
+<body>
+<h1> DevOps Practice Page</h1>
+<p>Built on: $(date)</p>
+</body>
+</html>
+eof
+Exit

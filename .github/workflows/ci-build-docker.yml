@@ -1,0 +1,28 @@
+name: CI - Build Docker Image
+on:
+  push:
+    branches: [ main, 'practice/*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image (no push)
+        uses: docker/build-push-action@v5
+        with:
+          push: false
+          tags: devops-practice:ci
+
+      - name: Smoke test
+        run: echo "CI build finished successfully"
